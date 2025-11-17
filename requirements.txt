@@ -1,0 +1,18 @@
+# Install with:
+# pip install -r requirements_cpu.txt --index-url https://download.pytorch.org/whl/cpu
+
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+ftfy
+regex
+tqdm
+transformers>=4.35.0
+Pillow>=10.0.0
+numpy>=1.26.0
+jupyterlab
+ipython
+scipy
+pandas
+pyarrow
+matplotlib

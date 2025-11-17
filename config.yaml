@@ -1,0 +1,16 @@
+dataset:
+  name: coco
+  root: "./data/coco/train2017"
+  ann_file: "./data/coco/annotations/captions_train2017.json"
+
+model:
+  model_name: "openai/clip-vit-base-patch16"
+  image_size: 224
+
+training:
+  batch_size: 16
+  epochs: 1
+  lr: 1e-5
+
+output:
+  output_dir: "./clip_finetuned_coco"
