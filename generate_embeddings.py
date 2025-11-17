@@ -80,7 +80,7 @@ def save_embeddings(model, dataset, config):
         num_workers=NUM_WORKERS,
         collate_fn=collate_fn,
     )
-    processor = CLIPProcessor.from_pretrained(config['model']['model_name'])
+    processor = CLIPProcessor.from_pretrained(config['model']['model_name'], use_fast=True)
 
     # get embeddings
     all_rows = []
@@ -144,12 +144,11 @@ def train(config):
         num_workers=NUM_WORKERS,
         collate_fn=collate_fn,
     )
-    processor = CLIPProcessor.from_pretrained(config['model']['model_name'])
-
+    
     # load openai clip 
     model_name = config['model'].get('model_name','openai/clip-vit-base-patch16')
     model = CLIPModel.from_pretrained(model_name).to(DEVICE)
-    processor = CLIPProcessor.from_pretrained(model_name)
+    processor = CLIPProcessor.from_pretrained(model_name, use_fast=True)
     optimizer = torch.optim.AdamW(model.parameters(), lr=float(config['training'].get('lr', 1e-5)))
 
     epochs = config['training'].get('epochs', 1)
