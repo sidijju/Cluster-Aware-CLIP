@@ -111,8 +111,6 @@ def save_embeddings(model, dataset, config):
                     "text_embedding": texts_out[i].cpu().numpy()
                 })
 
-            break
-
     # write df to parquet
     print("Saving embeddings...")
     df = pd.DataFrame(all_rows)
@@ -157,7 +155,6 @@ def train(config):
     epochs = config['training'].get('epochs', 1)
 
     all_losses = []
-    i=5
 
     for epoch in range(epochs):
         for imgs, texts in tqdm.tqdm(loader):
@@ -187,12 +184,6 @@ def train(config):
             optimizer.step()
 
             all_losses.append(loss.item())
-
-            # TODO: remove
-            if i == 0:
-                break
-            else:
-                i -= 1
 
         print(f"Epoch {epoch+1} loss={loss.item():.4f}")
 
