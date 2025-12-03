@@ -12,5 +12,19 @@ training:
   epochs: 1
   lr: 1e-5
 
+dec:
+  enabled: true
+  clusters: 80 # MSCOCO has 80 object categories
+  lambda: 0.1
+  lr: 1e-4
+
+wandb:
+  enabled: true
+  project: "clip-unsupervised"
+  # run: "dec_hyperparameter"
+  run: "debug"
+
+run_sweep: true
+
 output:
   output_dir: "./clip_finetuned_coco"
