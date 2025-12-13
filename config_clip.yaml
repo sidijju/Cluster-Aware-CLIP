@@ -1,0 +1,24 @@
+dataset:
+  name: coco
+  root: "/content/drive/MyDrive/Cluster-Aware-CLIP/data/coco/train2017"
+  ann_file: "/content/drive/MyDrive/Cluster-Aware-CLIP/data/coco/annotations/captions_train2017.json"
+
+model:
+  model_name: "openai/clip-vit-base-patch16"
+
+extract:
+  batch_size: 256
+  output_dir: "./clip_eval_coco"
+  embeddings_filename: embeddings.parquet
+
+sae:
+  code_dim: 4096
+  target_k: 5          
+  batch_size: 1024
+  lr: 5e-4
+  epochs: 20
+  seed: 0
+  sae_dir: "/content/drive/MyDrive/Cluster-Aware-CLIP/clip_eval_coco/outputs"
+
+analysis:
+  metrics_dir: "/content/drive/MyDrive/Cluster-Aware-CLIP/clip_eval_coco/outputs"
