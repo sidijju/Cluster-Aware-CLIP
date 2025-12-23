@@ -16,3 +16,5 @@
 - Run 'train_sae.py'
 - Run 'analyze_geometry.py'
 - Run 'visualize_concepts.py'
+
+You can find the final report in final_report.pdf
